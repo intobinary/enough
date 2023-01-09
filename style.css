@@ -1,0 +1,53 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #161a20;
+  min-height: 100vh;
+}
+
+.snow-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+@keyframes flake {
+  0% {
+    transform: translate(var(--x-start), var(--y-start)) rotate(0);
+  }
+  100% {
+    transform: translate(var(--x-end), var(--y-end)) rotate(50deg);
+  }
+}
+.snowflake {
+  --sz: 1rem;
+  --blur: 2px;
+  --a: 0.8;
+  --x-start: 50vw;
+  --x-end: 0;
+  --y-start: 0;
+  --y-end: 100vh;
+  position: absolute;
+  font-size: var(--sz);
+  filter: blur(var(--blur));
+  animation: flake 20s linear infinite;
+  transform: translate(var(--x-start), -15vh) rotate(0);
+  opacity: var(--a);
+}
+.snowflake--m {
+  --sz: 2rem;
+  --blur: 2px;
+  filter: blur(0px);
+  z-index: 50;
+}
+.snowflake--l {
+  --sz: 3rem;
+  --blur: 0px;
+  z-index: 80;
+}
+.snowflake--xl {
+  --sz: 6rem;
+  --blur: 4px;
+  --a: 0.5;
+  z-index: 100;
+}
